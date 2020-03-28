@@ -13,8 +13,8 @@ sql = false
 
 local SQL_HOST = "localhost"
 local SQL_PORT = 3306
-local SQL_USER = "hostOnset"
-local SQL_PASS = "dimOnsetDev"
+local SQL_USER = "root"
+local SQL_PASS = ""
 local SQL_DATA = "orp"
 local SQL_CHAR = "utf8mb4"
 local SQL_LOGL = "error"

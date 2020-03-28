@@ -61,7 +61,7 @@ AddCommand("tptome", function(player, player2)
 	if player2 == nil then print("Invalid Usage : /tptome <player>") return end
 	if PlayerData[player].adminlevel >= 3 then
 		SetPlayerLocation(player2, x, y, z)
-		print(GetPlayerName(player) .. " teleported " .. GetPlayerSteamId(player2) .. " to themselves")
+		print(GetPlayerName(player) .. " teleported " .. GetPlayerSteamId(player2) .. " to themselves!")
 	else
 		print(GetPlayerSteamId(player) .. " tried using /tpto without permission!")
 	end

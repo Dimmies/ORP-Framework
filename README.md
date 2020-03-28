@@ -5,7 +5,7 @@ The Open Roleplay Framework, or O:RP Framework, is an open source roleplay frame
 
 # O:RP Features
 * SQL Data Saving
-* Extensive Configuration
+* Extensive Configuration | [Example](https://imgur.com/a/SLkkZu2)
 * Multiple Money Types (Cash, Bank, Dirty Money)
 * Jobs and Job Ranks
 * Support for multiple Languages _(WIP)_

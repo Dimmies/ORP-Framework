@@ -1,0 +1,35 @@
+{
+	"author": "@DimmiesTV",
+	"version": "1.0.0",
+
+	"client_scripts": [
+		"orp_config.lua",
+		"client/cl_main.lua",
+		"client/cl_ui.lua",
+
+		"langs/localization.lua",
+		"langs/en.lua"
+	],
+
+	"server_scripts": [
+		"utils/database.lua",
+		"utils/json.lua",
+		"orp_config.lua",
+		"server/sv_main.lua",
+		"server/sv_commands.lua",
+		"server/sv_locations.lua",
+
+		"langs/localization.lua",
+		"langs/en.lua"
+	],
+
+	"files": [
+		"utils/fontawesome.js",
+		"utils/jquery-ui.js",
+		"utils/jquery.js",
+
+		"ui/index.html",
+		"ui/style.css",
+		"ui/ui.js"
+	]
+}

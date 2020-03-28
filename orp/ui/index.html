@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <script src="http://asset/orp/utils/jquery.js"></script>
+        <script src="http://asset/orp/utils/jquery-ui.js"></script>
+        <script src="http://asset/orp/utils/fontawesome.js"></script>
+    </head>
+
+    <body onkeyup="KeyUp(event)">
+
+        <div id="MoneyDisplay">
+
+			<div id="CashDiv">
+				<i class="fas fa-dollar-sign fa-fw fa-lg" color="white"></i>
+                <h3 id="CashText">0</h3>
+            </div>
+
+            <div id="BankDiv">
+                <i class="fas fa-dollar-sign fa-fw fa-lg" color="green"></i>
+                <h3 id="BankText">0</h3>
+            </div>
+            
+            <div id="DirtyMoneyDiv">
+                <i class="fas fa-dollar-sign fa-fw fa-lg" color="red"></i>
+                <h3 id="DirtyMoneyText">0</h3>
+            </div>
+            
+            <div id="JobDiv">
+                <i class="fas fa-address-book fa-fw fa-lg" color="white"></i>
+                <h3 id="JobText">&nbsp Unemployed</h3>
+			</div>
+        </div>
+
+        <div id="PlayerList">
+            <div id="PLBody">
+                <div id="topBar">
+                    <p>ID</p>
+                    <p>NAME</p>
+                    <p>STEAMID</p>
+                    <p>PING</p>
+                </div>
+            </div>
+        </div>
+
+        <script src="ui.js" type="text/javascript"></script>
+    </body>
+</html>

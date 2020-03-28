@@ -22,3 +22,8 @@ O:RP Wiki: https://github.com/Dimmies/ORP-Framework/wiki
 O:RP Roadmap: https://trello.com/b/TUYvgeCY/orp-roadmap
 
 O:RP Discord: https://discord.gg/sApkfhS
+
+***
+
+# Contribute
+Want to contribute to making O:RP better? Feel free to do so! If you feel you've made a valuable change or addition to O:RP submit a pull request to be reviewed. We'll merge it all together for testing before releasing it to the public if all is well! Do that enough and you'll get a fancy `Developer` role on the Discord!

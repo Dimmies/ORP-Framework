@@ -1,15 +1,15 @@
 --[[ 
 	ORP Config 
 	⚠ READ THE COMMENTS ⚠
-	v1.0.0
+	v1.1.0
 --]]
 
-ORP_VERSION = "1.0.0" -- Don't change this
+ORP_VERSION = "1.1.0" -- Don't change this
 DEBUG_MODE = true -- Enable this for additional logging to help debug any issues
 
 SERVER_NAME = "O:RP Server" -- Change this to your server name
 ENABLE_WHITELIST = false -- Set this to true to enable whitelisting
-SERVER_LANGUAGE = "en" -- Used to detirmine what language to use
+SERVER_LANGUAGE = "en" -- Used to determine what language to use
 
 DEFAULT_TEMPBAN_TIME = 60000 -- The amount of time someone is temp banned if no specific time is set | Default: 1 Day
 
@@ -29,7 +29,7 @@ SAVE_DEAD = true -- Whether or not the player should spawn dead if they logged o
 
 AUTO_SAVE_TIMER = 300000 -- How often players data should automatically save in ms | Default: 5 Minutes
 
-AUTO_START_PACKAGES = true -- Whether or not O:RP should automatically start any packages | Must be named orp_<packagename> EX: orp_vehicles | This is experimental, it may not work
+AUTO_START_PACKAGES = true -- Whether or not O:RP should automatically start any packages | Must be named orp_<packagename> EX: orp_vehicles | ⚠ This is experimental ⚠
 
 SHOW_NAME_TAG = true -- Whether or not name tags above players show
 SHOW_HEALTH_TAG = true -- Whether or not health tags above players show
@@ -42,9 +42,10 @@ SHOW_WEAPON_HUD = false -- Whether or not the Weapon HUD element should be shown
 DEFAULT_WEATHER = 7 -- Sets the default weather to sync all clients together | Weather System coming soon!
 
 ENABLE_CHANGE_VIEW = true -- If players should be allowed to switch camera views (First Person/3rd Person)
+DEFAULT_VIEW = 2 -- 1 = First Person, 2 = 3rd Person, 3 = 3rd Person Extended (Use this to change the default camera)
 
 ENABLE_HELP_COMMAND = true -- If the /help command should be enabled for all users.
-HELP_COMMAND_SITE = "" -- The website/link players see when they run the /help command! | Admins will always see the O:RP Wiki
+HELP_COMMAND_SITE = "https://playonset.com" -- The website/link players see when they run the /help command! | Admins will always see the O:RP Wiki
 
 ENABLE_OOC_CHAT = true -- Set to false to disable the /ooc command | If enabled /ooc <msg> will send a message to all players
 ENABLE_ME_CHAT = true -- Set to false to disable the /me command

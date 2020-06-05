@@ -1,5 +1,7 @@
 {
-	"author": "@DimmiesTV",
+	"author": "Dimmies",
+	"discord": "https://discord.gg/sApkfhS",
+	"github": "https://github.com/Dimmies/ORP-Framework",
 	"version": "1.0.0",
 
 	"client_scripts": [
@@ -12,8 +14,8 @@
 	],
 
 	"server_scripts": [
-		"utils/database.lua",
-		"utils/json.lua",
+		"../common/database.lua",
+		"../common/json.lua",
 		"orp_config.lua",
 		"server/sv_main.lua",
 		"server/sv_commands.lua",

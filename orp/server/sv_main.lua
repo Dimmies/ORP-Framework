@@ -25,15 +25,15 @@ end)
 
 AddEvent("OnPlayerQuit", function(player)
 	UpdatePlayerData(player)
-	Delay(1000, function()
-		PlayerData[player] = {}
+	Delay(100, function()
+		PlayerData[player] = nil
 	end)
 end)
 
 function CheckWhitelist(player)
 	local SteamID = tostring(GetPlayerSteamId(player))
 	if DEBUG_MODE then print("Checking if " .. SteamID .. " is whitelisted..") end
-	mariadb_query(sql, mariadb_prepare(sql, "SELECT * FROM whitelist WHERE steamid = ?", SteamID), function(player)
+	mariadb_query(sql, mariadb_prepare(sql, "SELECT * FROM whitelist WHERE steamid = '?'", SteamID), function(player)
         if mariadb_get_row_count() >= 1 then
 			CheckBan(player)
 		else
@@ -45,7 +45,7 @@ end
 function CheckBan(player)
 	local SteamID = tostring(GetPlayerSteamId(player))
 	if DEBUG_MODE then print("Checking if " .. SteamID .. " is banned..") end
-	mariadb_query(sql, mariadb_prepare(sql, "SELECT * FROM bans WHERE steamid = ?", SteamID), function(player)
+	mariadb_query(sql, mariadb_prepare(sql, "SELECT * FROM bans WHERE steamid = '?'", SteamID), function(player)
 		if mariadb_get_row_count() >= 1 then
 			local result = mariadb_get_assoc(1)
 			if tonumber(result['perm']) == 0 then
@@ -73,9 +73,8 @@ end
 
 function LoadPlayer(player)
 	local SteamID = tostring(GetPlayerSteamId(player))
-	mariadb_query(sql, mariadb_prepare(sql, "SELECT * FROM accounts WHERE steamid = ?", SteamID), function(player)
+	mariadb_query(sql, mariadb_prepare(sql, "SELECT * FROM accounts WHERE steamid = '?'", SteamID), function(player)
 		if mariadb_get_row_count() >= 1 then
-			print("Sending Load")
 			LoadPlayerData(player)
 		else
 			CreatePlayerData(player)
@@ -90,14 +89,9 @@ function LoadPlayerData(player)
 	PlayerData[player] = {}
 	mariadb_query(sql, mariadb_prepare(sql, "SELECT * FROM accounts WHERE steamid = ?", SteamID), function(player)
 		local result = mariadb_get_assoc(1)
-		PlayerData[player].adminlevel = tonumber(result['adminlevel'])
-		PlayerData[player].cash = math.tointeger(result['cash'])
-		PlayerData[player].bank = math.tointeger(result['bank'])
-		PlayerData[player].dirtymoney = math.tointeger(result['dirtymoney'])
-		PlayerData[player].job = tostring(result['job'])
-		PlayerData[player].jobrank = math.tointeger(result['jobrank'])
-		PlayerData[player].isdead = tonumber(result['isdead'])
-		PlayerData[player].sex = tostring(result['sex'])
+		for i=1, mariadb_get_field_count(), 1 do
+			PlayerData[player][mariadb_get_field_name(i)] = result[mariadb_get_field_name(i)]
+		end
 
 		if RANDOM_SPAWN == true then
 			math.randomseed(os.clock())
@@ -189,6 +183,7 @@ function UpdatePlayerData(player)
 	loc = { x, y, z }
     
 	if not PlayerData[player] then return end
+	if DEBUG_MODE == true then print(json_encode(PlayerData[player])) end
     mariadb_query(sql, mariadb_prepare(sql, "UPDATE accounts SET adminlevel = '?', cash = '?', bank = '?', dirtymoney = '?', job = '?', jobrank = '?', location = '?', health = '?', armor = '?', isdead = '?', sex = '?' WHERE steamid = '?'",
         PlayerData[player].adminlevel,
         PlayerData[player].cash,
@@ -207,8 +202,9 @@ end
 AddRemoteEvent("UpdatePlayerData", UpdatePlayerData)
 AddFunctionExport("UpdatePlayerData", UpdatePlayerData)
 
+-- // Experimental Auto-Load Packages
 function AutoLoadPackages()
-	dir = "packages" -- Directory to where all of your packages are. You shouldn't need to change this
+	dir = "packages" -- Directory to where all of your packages are. You shouldn't have to change this
     local i, t, popen = 0, {}, io.popen
     for filename in popen('dir "'..dir..'" /b'):lines() do
 		if string.match(filename, "orp_") then

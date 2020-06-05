@@ -1,4 +1,4 @@
-local currentView = 2 -- 1 = First Person, 2 = 3rd Person, 3 = 3rd Person Extended
+local currentView = DEFAULT_VIEW
 
 AddEvent("OnPackageStart", function()
     CreateTimer(function()
@@ -61,3 +61,7 @@ AddEvent("OnKeyPress", function(key)
     end
 end)
 
+function OnScriptError(message)
+	AddPlayerChat('<span color="#ff0000bb" style="bold" size="10">'..message..'</>')
+end
+AddEvent("OnScriptError", OnScriptError)

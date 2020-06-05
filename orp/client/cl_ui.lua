@@ -37,7 +37,9 @@ end
 AddRemoteEvent("ORP:UpdateUIJS", UpdateUIJS)
 
 AddEvent("OnWebLoadComplete", function(web)
-    CallRemoteEvent("ORP:FetchUIInfo")
+    Delay(200, function()
+        CallRemoteEvent("ORP:FetchUIInfo")
+    end)
 end)
 
 AddEvent("OnKeyPress", function(key)
